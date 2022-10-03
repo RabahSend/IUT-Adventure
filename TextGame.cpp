@@ -363,7 +363,6 @@ void game() {
 		Dialogues::Chikha(perso_principal, 0, 0);
 
 		faireChoix(perso_principal);
-		//commentaire
 	}
 
 }
