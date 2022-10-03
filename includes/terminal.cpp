@@ -5,7 +5,7 @@
 #include <sstream>
 
 namespace terminal {
-    terminal::terminal() { //Sruct constructor, places the name of the OS in osName
+    terminal::terminal() { //Struct constructor, places the name of the OS in osName
 
         #ifdef _WIN32
         osName = "windows32t";
