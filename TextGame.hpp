@@ -1,5 +1,7 @@
 #ifndef TEXTGAME_HPP
 #define TEXTGAME_HPP
+#include <vector>
+#include <string>
 
 class Perso {
 protected:
