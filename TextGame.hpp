@@ -9,10 +9,10 @@ protected:
 	double degats;
 	double defense;
 	double pointsDeVie;
+	int level;
 
 private:
 
-	int level;
 	double barre_xp;
 	bool vivant = true;
 
@@ -47,13 +47,11 @@ class Guerrier:public Perso {
 		bool HacheDeGuerre = false;
 		bool DestructionInstantanee = false;
 	public:
-		Guerrier(std::string):Perso(Nom) {
+		Guerrier(std::string nom):Perso(Nom) {
 			Nom = nom;
 			pointsDeVie = 15.0;
 			degats = 15.0;
 			defense = 5.0;
-			level = 1;
-			barre_xp = 0.0;
 		}
 
 		void donnerCompetence() {
