@@ -11,7 +11,7 @@ namespace terminal {
         osName = "windows64";
 
         #elif __APPLE__ || __MACH__
-        osName =n "macos";
+        osName = "macos";
 
         #elif __linux__
         osName = "linux";
