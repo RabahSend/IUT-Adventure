@@ -33,7 +33,6 @@ namespace Dialogues {
 		for (int i = indexDebut; i <= indexFin; ++i){
 			std::cout << narrateur[i] << std::endl; 
 			std::cout << std::endl;
-			Sleep(1);
 		}
 
 		passerDialogue();
