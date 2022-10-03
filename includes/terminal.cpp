@@ -32,9 +32,9 @@ namespace terminal {
     }
 
     void terminal::clear() {
-        if ((osName == "linux") && (osName == "macos") && (osName == "freebsd") && (osName == "other")) //Unix based systems
+        if ((osName == "linux") || (osName == "macos") || (osName == "freebsd") || (osName == "other")) //Unix based systems
             system("clear");
-        else if ((osName == "windows32") && (osName == "winsows64")) //Windows based systems
+        else if ((osName == "windows32") || (osName == "winsows64")) //Windows based systems
             system("cls");
         else
             system("clear");
