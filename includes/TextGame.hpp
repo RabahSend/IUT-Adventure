@@ -2,6 +2,9 @@
 #define TEXTGAME_HPP
 #include <vector>
 #include <string>
+#include <iostream>
+#include <windows.h>
+#include <fstream>
 
 class Perso {
 protected:
@@ -77,6 +80,8 @@ public:
 };
 
 void demarrage();
+
+void printASCII(std::string);
 
 int menu();
 

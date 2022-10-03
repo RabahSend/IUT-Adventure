@@ -1,7 +1,3 @@
-#include <iostream>
-#include <vector>
-#include <windows.h>
-#include <fstream>
 #include "TextGame.hpp"
 
 //a modifier (c'est un test tqt)
@@ -174,25 +170,6 @@ Monster::Monster(double degs, double def, int pv, int lvl) {
 	defense = def;
 	pointsDeVie = pv;
 	level = lvl;
-}
-
-void printASCII(std::string FileName) {
-
-	std::string line = "";
-	std::fstream inFile;
-	inFile.open(FileName);
-
-	if (inFile.is_open()){
-		while (getline(inFile, line)) {
-			std::cout << "		" << line << std::endl;
-		}
-	}
-
-	else {
-		std::cerr << "impossible, fichier probablement corrompu (lol le tocard)" << std::endl;
-	}
-
-	inFile.close();
 }
 
 int menu() {
