@@ -36,6 +36,8 @@ namespace terminal {
             system("clear");
         else if ((osName == "windows32") && (osName == "winsows64")) //Windows based systems
             system("cls");
+        else
+            system("clear");
     }
 
     //Draw on screen
@@ -48,6 +50,27 @@ namespace terminal {
             
             while (spriteStream.peek() != EOF) { //Until end of file
                 std::getline(spriteStream, sprite);
+                std::cout << sprite << "\n";
+            }
+
+            spriteStream.close(); //Never forget to close the stream
+
+
+        }
+
+        void drawSprite(std::string spritePath, unsigned int gap) {
+            std::string sprite;
+            std::ifstream spriteStream;
+
+            spriteStream.open(spritePath);
+            
+            while (spriteStream.peek() != EOF) { //Until end of file
+                std::getline(spriteStream, sprite);
+
+                for (unsigned int i=0; i<gap; i++) { //Add a gap before the sprite
+                    std::cout << " ";
+                }
+
                 std::cout << sprite << "\n";
             }
 

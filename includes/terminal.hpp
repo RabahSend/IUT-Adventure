@@ -11,7 +11,8 @@ namespace terminal {
     };
 
     namespace draw {
-        void drawSprite(std::string spritePath);
+        void drawSprite(std::string spritePath); //Without gap
+        void drawSprite(std::string spritePath, unsigned int gap); //With gap
     }
 
 }
