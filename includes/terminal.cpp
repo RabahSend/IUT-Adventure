@@ -1,5 +1,8 @@
 #include "terminal.hpp"
 #include <stdlib.h>
+#include <fstream>
+#include <iostream>
+#include <sstream>
 
 namespace terminal {
     terminal::terminal() { //Sruct constructor, places the name of the OS in osName
@@ -33,5 +36,24 @@ namespace terminal {
             system("clear");
         else if ((osName == "windows32") && (osName == "winsows64")) //Windows based systems
             system("cls");
+    }
+
+    //Draw on screen
+    namespace draw {
+        void drawSprite(std::string spritePath) {
+            std::string sprite;
+            std::ifstream spriteStream;
+
+            spriteStream.open(spritePath);
+            
+            while (spriteStream.peek() != EOF) { //Until end of file
+                std::getline(spriteStream, sprite);
+                std::cout << sprite << "\n";
+            }
+
+            spriteStream.close(); //Never forget to close the stream
+
+
+        }
     }
 }

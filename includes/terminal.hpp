@@ -10,4 +10,8 @@ namespace terminal {
         void clear();
     };
 
+    namespace draw {
+        void drawSprite(std::string spritePath);
+    }
+
 }
