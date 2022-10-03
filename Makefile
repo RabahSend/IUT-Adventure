@@ -1,20 +1,20 @@
 CXX=g++
 CXXFLAGS=-Wall -c
 
-prog.exe : main.o ASCII.o dialogues.o terminal.o TextGame.o
-	$(CXX) -o prog.exe main.o ASCII.o dialogues.o terminal.o TextGame.o
+prog.exe : src/main.o includes/ASCII.o includes/dialogues.o includes/terminal.o includes/TextGame.o
+	$(CXX) -o prog.exe src/main.o includes/ASCII.o includes/dialogues.o includes/terminal.o includes/TextGame.o
 
-	ASCII.o : ASCII.cpp TextGame.cpp TextGame.hpp
-	$(CXX) $(CXXFLAGS) ASCII.o TextGame.cpp ASCII.cpp
+main.o : src/main.cpp includes/ASCII.cpp includes/dialogues.cpp includes/dialogues.hpp includes/terminal.cpp includes/terminal.hpp includes/TextGame.cpp includes/TextGame.hpp
+	$(CXX) $(CXXFLAGS) main.o src/main.cpp includes/ASCII.cpp includes/dialogues.cpp includes/terminal.cpp includes/TextGame.cpp
 
-dialogues.o : TextGame.cpp TextGame.hpp dialogues.cpp dialogues.hpp
-	$(CXX) $(CXXFLAGS) dialogues.o TextGame.cpp
+ASCII.o : includes/ASCII.cpp includes/TextGame.cpp includes/TextGame.hpp
+	$(CXX) $(CXXFLAGS) ASCII.o includes/ASCII.cpp includes/TextGame.cpp
 
-terminal.o : terminal.cpp terminal.hpp
-	$(CXX) $(CXXFLAGS) terminal.o terminal.cpp
+dialogues.o : includes/TextGame.cpp includes/TextGame.hpp includes/dialogues.cpp includes/dialogues.hpp
+	$(CXX) $(CXXFLAGS) dialogues.o includes/TextGame.cpp
 
-TextGame.o : TextGame.cpp TextGame.hpp dialogues.cpp dialogues.hpp
-	$(CXX) $(CXXFLAGS) TextGame.o TextGame.cpp dialogues.cpp
+terminal.o : includes/terminal.cpp includes/terminal.hpp
+	$(CXX) $(CXXFLAGS) terminal.o includes/terminal.cpp
 
-main.o : ASCII.cpp dialogues.cpp dialogues.hpp terminal.cpp terminal.hpp TextGame.cpp TextGame.hpp
-	$(CXX) $(CXXFLAGS) main.o ASCII.cpp dialogues.cpp terminal.cpp TextGame.cpp
+TextGame.o : includes/TextGame.cpp includes/TextGame.hpp includes/dialogues.cpp includes/dialogues.hpp
+	$(CXX) $(CXXFLAGS) TextGame.o includes/TextGame.cpp includes/dialogues.cpp
