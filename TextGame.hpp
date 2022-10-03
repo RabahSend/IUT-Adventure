@@ -60,7 +60,7 @@ class Guerrier:public Perso {
 		}
 };
 
-
+//comm
 
 class Monster {
 private:
