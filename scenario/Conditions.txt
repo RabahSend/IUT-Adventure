@@ -1,0 +1,22 @@
+jeu textuel:
+
+Nom ? (potentiellement le faire en ASCII Art pour le démarrage)
+
+RPG ? Tour par tour ?
+
+Systeme d'attaques, d'objets et de fuites comme dans Pokemon ?
+
+Histoire ? développée ou non ? (peut-être sur l'IUT avec comme boss
+final chikha ?)
+
+système de sauvegarde ? facile à faire avec du C++ ?
+
+POO ? :
+
+système d'items ? Plusieurs personnages ?
+Creer son personnage avec 4 classes différentes à choisir ?
+systèmes de stats ?
+
+Monstres ? Boss ? (Peut-être les faire en ASCII aussi ?)
+
+Nb vies ? buffs ? malus ?
