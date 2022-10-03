@@ -78,5 +78,35 @@ namespace terminal {
 
 
         }
+
+        void error(std::string error) {
+            char c;
+            do {
+                terminal term;
+                term.clear();
+                std::cout << error << std::endl;
+                std::cout << "Continuer [O/n] ";
+                std::cin >> c;
+                if (c == 'n' || c == 'N')
+                    exit(0);
+
+            } while (c != 'o' || c != 'O');
+        }
+
+        void titleScreen() {
+            terminal terminal;
+            terminal.clear();
+            drawSprite("../sprites/title.ascii");
+
+            std::cout << "\n\n\n" << "Bienvenue dans IUT Adventure! le jeux où tout est possible (enfin presque)" << std::endl;
+        }
+
+        void titleSelectMenu(unsigned int& choice) {
+            std::cout << "Choisissez votre aventure :" << std::endl;
+            std::cout << "1. Charger une sauvegarde\n"
+                      << "0. Quitter" << std::endl;
+
+            std::cin >> choice;
+        }
     }
 }

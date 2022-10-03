@@ -13,6 +13,13 @@ namespace terminal {
     namespace draw {
         void drawSprite(std::string spritePath); //Without gap
         void drawSprite(std::string spritePath, unsigned int gap); //With gap
+
+        void error(std::string error);
+
+        void titleScreen();
+        void titleSelectMenu(unsigned int& choice); //title screen menu slection
+
+        void saveMenu();
     }
 
 }
