@@ -4,6 +4,7 @@
 #include <fstream>
 #include "TextGame.hpp"
 
+//a modifier (c'est un test tqt)
 
 namespace Dialogues {
 	void passerDialogue() {
