@@ -1,4 +1,4 @@
-#include "../includes/TextGame.hpp"
+#include "TextGame.hpp"
 
 void printASCII(std::string FileName) {
 

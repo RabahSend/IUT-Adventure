@@ -1,4 +1,4 @@
-#include "../includes/TextGame.hpp"
+#include "TextGame.hpp"
 
 namespace Dialogues {
     

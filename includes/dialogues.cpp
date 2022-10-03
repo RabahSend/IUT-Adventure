@@ -1,4 +1,4 @@
-#include "../includes/TextGame.hpp"
+#include "TextGame.hpp"
 #include "dialogues.hpp"
 
 void Dialogues::passerDialogue() {
