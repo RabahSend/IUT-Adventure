@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "TextGame.hpp"
+#include "../includes/TextGame.hpp"
 
 int main() {
 
