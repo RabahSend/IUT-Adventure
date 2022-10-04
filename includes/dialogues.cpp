@@ -1,5 +1,6 @@
 #include "TextGame.hpp"
 #include "dialogues.hpp"
+#include "../Mobs_and_Persos/Entity.hpp"
 
 void Dialogues::passerDialogue() {
 	char space;
@@ -11,7 +12,7 @@ void Dialogues::passerDialogue() {
 void Dialogues::Narration(Perso perso_principal, int indexDebut, int indexFin) {
 
 	if (indexDebut == 0 && indexFin == 1)
-		std::cout << perso_principal.Nom << " se promene tranquillement en quete de connaissances(glander dans la salle des poufs).." << std::endl;
+		std::cout << perso_principal.afficherNom() << " se promene tranquillement en quete de connaissances(glander dans la salle des poufs).." << std::endl;
 
 	std::vector<std::string> narrateur = { "..Quand, soudain, une grande ombre apparait en face de lui, discernable entre toutes..",
 		"OMG, c'etait monsieur Chikhaoui !!",

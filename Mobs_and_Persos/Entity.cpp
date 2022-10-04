@@ -1,97 +1,59 @@
 #include "Entity.hpp"
+#include "../includes/terminal.hpp"
 
-Perso::Perso(std::string nom) {
+terminal::terminal term;
 
-		Nom = nom;
-		pointsDeVie = 10.0;
-		degats = 10.0;
-		defense = 10.0;
-		level = 1;
-		barre_xp = 0.0;
-}
+//Creation of objects...
 
-void Perso::augmenterLevel() {
-		level++;
-}
-
-void Perso::augmenterBarreXP(double nb) {
-	barre_xp += nb;
-	if (barre_xp > 10) {
-		barre_xp = 0;
-		nb = 10 - nb;
-		barre_xp = nb;
-		augmenterLevel();
-	}
-	else if (barre_xp == 10) {
-		barre_xp = 0;
-		augmenterLevel();
-	}
-}
-
-void Perso::dropInfos() {
-	system("cls");
-	
-	std::vector<std::string> Menu = {"1. Aller a l'inventaire", "2. Voir equipement",
-	 "3. Quitter le menu personnage"};
-	 std::vector<std::string> stats = {"Defense : ", "Attaque : ", "Pv : ", "Niveau : ",
-	 "Barre d'experience : "};
-	 std::vector <double> statsPerso = {degats,defense, pointsDeVie, (double)level, barre_xp};
-
-	std::cout << "			" << Nom << std::endl;
+Perso creerPersonnage() {
+	std::string nomPerso;
 
 	std::cout << std::endl;
 
-	std::cout << "classe : ";
+	std::cout << "que sera le prenom de votre etudiant a l'iut ?" << std::endl << ": ";
+	std::cin >> nomPerso;
 
-	/*if (Guerrier == true)
-		std::cout << "guerrier" << std::endl;
-	else if (Mage == true)
-		std::cout << "mage" << std::endl;
-	else if (Voleur == true)
-		std::cout << "voleur" << std::endl;
-	else
-		std::cout << "archer" << std::endl;*/
 
-	std::cout << std::endl;
+	Perso Perso_principal(nomPerso);
 
-	std::cout << "stats : " << std::endl;
+	int choixClasse = 1;
 
-	for (long long unsigned i = 0; i < stats.size(); ++i){
-		std::cout << stats[i] << statsPerso[i] << std::endl;
-	}
+		term.clear();
+		
+		std::cout << nomPerso << " ? pas ouf le prenom.. bref, sera-t-il : " << std::endl;
 
-	std::cout << std::endl;
+		std::cout << "1. Guerrier ?" << std::endl;
+		std::cout << "2. Mage ?" << std::endl;
+		std::cout << "3. Arab..euh, Voleur ?" << std::endl;
+		std::cout << "4. Archer ?" << std::endl;
 
-	for(long long unsigned i = 0; i < Menu.size(); ++i){
-		std::cout << "		" << Menu[i];
-	}
-	std::cout << std::endl;
+		std::cout << "votre choix ? (en fonction du numero)" << std::endl;
+		std::cout << ": ";
+		std::cin >> choixClasse;
 
-	int choixMenuPerso;
-
-	std::cin >> choixMenuPerso;
-
-	if (choixMenuPerso == 3) {
-		return;
-	}
-}
-
-void Perso::addInventaire(std::string item) {
-	inventaire.push_back(item);
-}
-
-void Perso::deleteInventaire(std::string item) {
-	for (std::string& i : inventaire) {
-		if (i == item){
-			i = "None";
+		while(!(choixClasse < 5 && choixClasse > 0)) {
+			std::cout << "pas un bon chiffre tocard, lis mieux ou je te tabasse" << std::endl;
+			std::cin >> choixClasse;
 		}
-	}
-}
 
-Monster::Monster(double degs, double def, int pv, int lvl) {
-	vivant = true;
-	degats = degs;
-	defense = def;
-	pointsDeVie = pv;
-	level = lvl;
-}
+	/*switch (choixClasse) {
+	case 1:
+		Perso_principal.Guerrier = true;
+		Perso_principal.equipement.push_back("Baton en bois");
+		break;
+	case 2:
+		Perso_principal.Mage = true;
+		Perso_principal.equipement.push_back("Baton de majissien");
+		break;
+	case 3:
+		Perso_principal.Voleur = true;
+		Perso_principal.equipement.push_back("Schlasse(couteau ahah)");
+		break;
+	case 4:
+		Perso_principal.Archer = true;
+		Perso_principal.equipement.push_back("sarbacane(du college)");
+		break;
+	}*/
+
+	return Perso_principal;
+};

@@ -3,31 +3,63 @@
 #include <vector>
 #include <string>
 
-class Perso {
-
-protected:
-
+struct stats {
 	double degats;
 	double defense;
 	double pointsDeVie;
 	int level;
+	int barre_xp;
+};
+
+class Perso {
+
+protected:
+
+	stats Stats;
 
 private:
 
-	double barre_xp;
 	bool vivant = true;
+	std::string Nom;
 
 public:
 
-	std::vector<std::string> equipement;
-	std::vector<std::string> inventaire;
-	std::string Nom;
+	std::string getName(std::string nom) { return nom; }
+	std::string afficherNom() {std::cout << Nom << std::endl;}
 
-	Perso(std::string);
+	void getStats() {
+		std::cout << "Defense : " << Stats.defense << std::endl;
+		std::cout << "Degats : " << Stats.degats << std::endl;
+		std::cout << "PV : " << Stats.pointsDeVie << std::endl;
+		std::cout << "level : " << Stats.level << std::endl;
+		std::cout << "barre d'xp : " << Stats.barre_xp << std::endl;
+	}
 
-	void augmenterLevel();
+	Perso(std::string nom) {
 
-	void augmenterBarreXP(double);
+		Nom = nom;
+		Stats.pointsDeVie = 10.0;
+		Stats.degats = 10.0;
+		Stats.defense = 10.0;
+		Stats.level = 1;
+		Stats.barre_xp = 0.0;
+	}
+
+	void augmenterLevel() { Stats.level++; }
+
+	void augmenterBarreXP(double nb) {
+	Stats.barre_xp += nb;
+	if (Stats.barre_xp > 10) {
+		Stats.barre_xp = 0;
+		nb = 10 - nb;
+		Stats.barre_xp = nb;
+		augmenterLevel();
+	}
+	else if (Stats.barre_xp == 10) {
+		Stats.barre_xp = 0;
+		augmenterLevel();
+	}
+}
 
 	void dropInfos();
 
@@ -35,6 +67,7 @@ public:
 
 	void deleteInventaire(std::string);
 };
+
 class Guerrier:public Perso {
 	private:
 		bool FeuTenebreux = false;
@@ -42,15 +75,14 @@ class Guerrier:public Perso {
 		bool HacheDeGuerre = false;
 		bool DestructionInstantanee = false;
 	public:
-		Guerrier(std::string nom):Perso(Nom) {
-			Nom = nom;
-			pointsDeVie = 15.0;
-			degats = 15.0;
-			defense = 5.0;
+		Guerrier(std::string nom):Perso(getName(nom)) {
+			Stats.pointsDeVie = 15.0;
+			Stats.degats = 15.0;
+			Stats.defense = 5.0;
 		}
 
 		void donnerCompetence() {
-			if (level == 5)
+			if (Stats.level == 5)
 				FeuTenebreux = true;
 		}
 };
@@ -65,6 +97,13 @@ private:
 
 public:
 
-	Monster(double, double, int, int);
-
+	Monster(double degs, double def, int pv, int lvl) {
+	vivant = true;
+	degats = degs;
+	defense = def;
+	pointsDeVie = pv;
+	level = lvl;
+	}
 };
+
+Perso creerPersonnage();
