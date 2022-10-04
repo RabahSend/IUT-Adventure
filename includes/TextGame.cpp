@@ -51,8 +51,6 @@ void choisirMenu(int choix, bool& booleen) {
 	}
 }
 
-//void Inventaire()
-
 void faireChoix(Perso personnage_principal) {
 	std::vector<std::string> lesChoix = {"1. Avancer", "2. Details du personnage", "3. Sauvegarder",
 	 "4. Quitter"};
@@ -74,7 +72,7 @@ void faireChoix(Perso personnage_principal) {
 			Dialogues::Narration(personnage_principal, 2, 3);
 			break;
 		case 2:
-			personnage_principal.dropInfos();
+			personnage_principal.getStats();
 			break;
 		case 3:
 			return;

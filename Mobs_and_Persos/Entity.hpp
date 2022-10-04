@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "../includes/terminal.hpp"
 
 struct stats {
 	double degats;
@@ -25,9 +26,11 @@ private:
 public:
 
 	std::string getName(std::string nom) { return nom; }
-	std::string afficherNom() {std::cout << Nom << std::endl;}
+	void afficherNom() {std::cout << Nom << std::endl;}
 
 	void getStats() {
+		std::cout << terminal::mid << Nom << std::endl;
+
 		std::cout << "Defense : " << Stats.defense << std::endl;
 		std::cout << "Degats : " << Stats.degats << std::endl;
 		std::cout << "PV : " << Stats.pointsDeVie << std::endl;

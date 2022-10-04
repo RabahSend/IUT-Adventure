@@ -1,5 +1,4 @@
-#ifndef TEXTGAME_HPP
-#define TEXTGAME_HPP
+#pragma once
 #include <vector>
 #include <string>
 #include <iostream>
@@ -18,5 +17,3 @@ void choisirMenu(int, bool&);
 void faireChoix(Perso);
 
 void game();
-
-#endif

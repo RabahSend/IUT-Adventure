@@ -1,5 +1,4 @@
 #include "Entity.hpp"
-#include "../includes/terminal.hpp"
 
 terminal::terminal term;
 

@@ -2,6 +2,8 @@
 #include <string>
 
 namespace terminal {
+
+    const std::string mid = "           ";
     
     struct terminal {
         terminal();
