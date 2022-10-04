@@ -11,9 +11,9 @@ void Dialogues::passerDialogue() {
 
 void Dialogues::Narration(Perso perso_principal, int indexDebut, int indexFin) {
 
-	if (indexDebut == 0 && indexFin == 1)
+	if (indexDebut == 0 && indexFin == 1) {
 		std::cout << perso_principal.afficherNom() << " se promene tranquillement en quete de connaissances(glander dans la salle des poufs).." << std::endl;
-
+	}
 	std::vector<std::string> narrateur = { "..Quand, soudain, une grande ombre apparait en face de lui, discernable entre toutes..",
 		"OMG, c'etait monsieur Chikhaoui !!",
 		 "Vous decidez courageusement d'avancer en vous confrontant a Monsieur Chikhaoui, mais vous remarquez quelque chose...",

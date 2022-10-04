@@ -26,7 +26,7 @@ private:
 public:
 
 	std::string getName(std::string nom) { return nom; }
-	void afficherNom() {std::cout << Nom << std::endl;}
+	std::string afficherNom() {return Nom;}
 
 	void getStats() {
 		std::cout << terminal::mid << Nom << std::endl;

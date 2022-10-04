@@ -1,3 +1,4 @@
+#pragma once
 #include "TextGame.hpp"
 
 namespace Dialogues {
