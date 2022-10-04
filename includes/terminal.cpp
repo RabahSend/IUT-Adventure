@@ -8,7 +8,7 @@ namespace terminal {
     terminal::terminal() { //Struct constructor, places the name of the OS in osName
 
         #ifdef _WIN32
-        osName = "windows32t";
+        osName = "windows32";
 
         #elif _WIN64
         osName = "windows64";

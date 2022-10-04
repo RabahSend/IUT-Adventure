@@ -20,3 +20,6 @@ systèmes de stats ?
 Monstres ? Boss ? (Peut-être les faire en ASCII aussi ?)
 
 Nb vies ? buffs ? malus ?
+
+Faire un fichier csv pour les sauvegardes 
+
