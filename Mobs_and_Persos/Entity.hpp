@@ -80,13 +80,67 @@ class Guerrier:public Perso {
 	public:
 		Guerrier(std::string nom):Perso(getName(nom)) {
 			Stats.pointsDeVie = 15.0;
+			Stats.degats = 10.0;
+			Stats.defense = 10.0;
+		}
+
+		void donnerCompetence() {
+			if (Stats.level == 5)
+				FeuTenebreux = true;
+		}
+};
+class Mage:public Perso {
+	private:
+		bool bouleDeFeu = false;
+		bool Soin = false;
+		bool bouleDeGlace = false;
+		bool Clonage = false;
+	public:
+		Mage(std::string nom):Perso(getName(nom)) {
+			Stats.pointsDeVie = 5.0;
+			Stats.degats = 20.0;
+			Stats.defense = 5.0;
+		}
+
+		void donnerCompetence() {
+			if (Stats.level == 5)
+				bouleDeFeu = true;
+		}
+};
+class Voleur:public Perso {
+	private:
+		bool lacosteTN = false;
+		bool attaqueAPlusieurs = false;
+		bool khalassMan = false;
+		bool volBandeOrganisee = false;
+	public:
+		Voleur(std::string nom):Perso(getName(nom)) {
+			Stats.pointsDeVie = 10.0;
 			Stats.degats = 15.0;
 			Stats.defense = 5.0;
 		}
 
 		void donnerCompetence() {
 			if (Stats.level == 5)
-				FeuTenebreux = true;
+				lacosteTN = true;
+		}
+};
+class Archer:public Perso {
+	private:
+		bool flecheBrulante = false;
+		bool flecheEmpoisonnee = false;
+		bool pluieDeFleches = false;
+		bool bombeDeFleches = false;
+	public:
+		Archer(std::string nom):Perso(getName(nom)) {
+			Stats.pointsDeVie = 10.0;
+			Stats.degats = 15.0;
+			Stats.defense = 5.0;
+		}
+
+		void donnerCompetence() {
+			if (Stats.level == 5)
+				flecheBrulante = true;
 		}
 };
 

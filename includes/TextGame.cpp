@@ -15,15 +15,15 @@ int menu() {
         
         switch (choice) {
             case 0:
-                exit(0);
-                break;
+                game();
+				break;
 
             case 1:
-                
+				//tqt
                 break;
 
 			case 2:
-				game();
+				exit(0);
 				break;
         
             default:
@@ -43,7 +43,7 @@ void faireChoix(Perso personnage_principal) {
 	std::vector<std::string> lesChoix = {"1. Avancer", "2. Details du personnage", "3. Sauvegarder",
 	 "4. Quitter"};
 
-	std::cout << "		Que voulez vous faire ?" << std::endl;
+	std::cout << terminal::mid <<"Que voulez vous faire ?" << std::endl;
 
 	for (long long unsigned i = 0; i < lesChoix.size(); ++i){
 		std::cout << "		" << lesChoix[i];

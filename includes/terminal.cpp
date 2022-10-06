@@ -101,9 +101,9 @@ namespace terminal {
 
         void titleSelectMenu(unsigned int& choice) {
             std::cout << "Choisissez votre aventure :" << std::endl;
-            std::cout << "2. Demarrer une nouvelle partie\n" 
+            std::cout << "0. Demarrer une nouvelle partie\n" 
                       << "1. Charger une sauvegarde\n"
-                      << "0. Quitter" << std::endl;
+                      << "2. Quitter" << std::endl;
 
             std::cin >> choice;
         }
