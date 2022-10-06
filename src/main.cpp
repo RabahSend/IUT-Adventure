@@ -4,7 +4,7 @@
 
 int main() {
 
-	game();
+	menu();
 
 	return 0;
 }

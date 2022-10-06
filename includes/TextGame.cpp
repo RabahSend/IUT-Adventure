@@ -3,6 +3,8 @@
 #include "../Mobs_and_Persos/Entity.hpp"
 
 int menu() {
+
+	void game();
     
     unsigned int choice;
     bool valid = false;
@@ -19,6 +21,10 @@ int menu() {
             case 1:
                 
                 break;
+
+			case 2:
+				game();
+				break;
         
             default:
                 break;
@@ -31,31 +37,6 @@ int menu() {
     term.clear();
     
     return 0;
-}
-
-void demarrage() {
-	terminal::terminal term;
-	term.clear();
-
-	std::string list[] = { "Bienvenue dans la belle aventure de L'IUT !", "Veuillez creer votre personnage." };
-
-	for (std::string& i : list)
-		std::cout << "		" << i << std::endl;
-}
-
-void choisirMenu(int choix, bool& booleen) {
-	switch (choix) {
-	case 1:
-		demarrage();
-		break;
-
-	case 2:
-		return;
-		break;
-	case 3:
-		booleen = false;
-		break;
-	}
 }
 
 void faireChoix(Perso personnage_principal) {
@@ -97,19 +78,8 @@ void game() {
 
 	terminal::terminal term;
 	term.clear();
-
 	std::cout << std::endl;
-
 	bool booleen = true;
-
-	int choixMenu = menu();
-	if (choixMenu == 3)
-		booleen = false;
-	else
-		choisirMenu(choixMenu, booleen);
-
-
-	term.clear();
 
 	while (booleen == true) {
 		Perso perso_principal = creerPersonnage();
@@ -123,6 +93,8 @@ void game() {
 			booleen = false;
 
 		Dialogues::Chikha(perso_principal, 0, 0);
+
+		terminal::draw::mobApparition("cat");
 
 		faireChoix(perso_principal);
 	}

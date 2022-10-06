@@ -101,10 +101,16 @@ namespace terminal {
 
         void titleSelectMenu(unsigned int& choice) {
             std::cout << "Choisissez votre aventure :" << std::endl;
-            std::cout << "1. Charger une sauvegarde\n"
+            std::cout << "2. Demarrer une nouvelle partie\n" 
+                      << "1. Charger une sauvegarde\n"
                       << "0. Quitter" << std::endl;
 
             std::cin >> choice;
+        }
+
+        void mobApparition(std::string spriteName) {
+            std::string SpritePath = "sprites/" + spriteName + ".ascii";
+            drawSprite(SpritePath);
         }
     }
 }
