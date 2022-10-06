@@ -1,6 +1,5 @@
 #include "Entity.hpp"
-
-terminal::terminal term;
+#include "../includes/dialogues.hpp"
 
 //Creation of objects...
 
@@ -17,14 +16,15 @@ Perso creerPersonnage() {
 
 	int choixClasse = 1;
 
-		term.clear();
+	terminal::terminal term;
+	term.clear();
 		
 		std::cout << nomPerso << " ? pas ouf le prenom.. bref, sera-t-il : " << std::endl;
 
-		std::cout << "1. Guerrier ?" << std::endl;
-		std::cout << "2. Mage ?" << std::endl;
-		std::cout << "3. Arab..euh, Voleur ?" << std::endl;
-		std::cout << "4. Archer ?" << std::endl;
+		std::cout << "1. Guerrier ?" << std::endl
+				  << "2. Mage ?" << std::endl
+				  << "3. Arab..euh, Voleur ?" << std::endl
+				  << "4. Archer ?" << std::endl;
 
 		std::cout << "votre choix ? (en fonction du numero)" << std::endl;
 		std::cout << ": ";

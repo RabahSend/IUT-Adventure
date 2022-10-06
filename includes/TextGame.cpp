@@ -2,33 +2,40 @@
 #include "dialogues.hpp"
 #include "../Mobs_and_Persos/Entity.hpp"
 
-
 int menu() {
-	int choixMenu = 0;
-	std::string list[] = { "1. Demarrer une nouvelle partie", "2. Ouvrir une sauvegarde", "3. Quitter le jeu" };
+    
+    unsigned int choice;
+    bool valid = false;
 
-	std::string fileName = "ASCII.txt";
-	printASCII(fileName);
+    do {
+        terminal::draw::titleScreen();
+        terminal::draw::titleSelectMenu(choice);
+        
+        switch (choice) {
+            case 0:
+                exit(0);
+                break;
 
-	std::cout << std::endl;
+            case 1:
+                
+                break;
+        
+            default:
+                break;
+        }
+    } while (!valid);
+    
 
-	for (std::string& i : list)
-		std::cout << "							" << i << std::endl;
 
-	std::cout << "	--------------" <<
-	"---------------------------------------" <<
-	"------------------------------------" <<
-	"-----------------------------------" <<
-	"--------------" << std::endl;
-
-	std::cout << "							";
-	std::cin >> choixMenu;
-
-	return choixMenu;
+    terminal::terminal term;
+    term.clear();
+    
+    return 0;
 }
 
 void demarrage() {
-	system("cls");
+	terminal::terminal term;
+	term.clear();
 
 	std::string list[] = { "Bienvenue dans la belle aventure de L'IUT !", "Veuillez creer votre personnage." };
 
@@ -88,7 +95,8 @@ void faireChoix(Perso personnage_principal) {
 
 void game() {
 
-	system("cls");
+	terminal::terminal term;
+	term.clear();
 
 	std::cout << std::endl;
 
@@ -100,7 +108,8 @@ void game() {
 	else
 		choisirMenu(choixMenu, booleen);
 
-	system("cls");
+
+	term.clear();
 
 	while (booleen == true) {
 		Perso perso_principal = creerPersonnage();

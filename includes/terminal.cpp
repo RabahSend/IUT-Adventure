@@ -38,20 +38,23 @@ namespace terminal {
             system("cls");
         else
             system("clear");
+
     }
 
     //Draw on screen
     namespace draw {
         void drawSprite(std::string spritePath) {
-            std::string sprite;
+            std::string sprite = "";
             std::ifstream spriteStream;
 
             spriteStream.open(spritePath);
-            
-            while (spriteStream.peek() != EOF) { //Until end of file
-                std::getline(spriteStream, sprite);
-                std::cout << sprite << "\n";
+
+            if(spriteStream.is_open()) { //Until end of file
+                while(std::getline(spriteStream, sprite))
+                    std::cout << sprite << mid << std::endl;
             }
+            else
+                std::cout << "fail bouffon" << std::endl;
 
             spriteStream.close(); //Never forget to close the stream
 
@@ -67,15 +70,10 @@ namespace terminal {
             while (spriteStream.peek() != EOF) { //Until end of file
                 std::getline(spriteStream, sprite);
 
-                for (unsigned int i=0; i<gap; i++) { //Add a gap before the sprite
-                    std::cout << " ";
-                }
-
                 std::cout << sprite << "\n";
             }
 
             spriteStream.close(); //Never forget to close the stream
-
 
         }
 
@@ -96,9 +94,9 @@ namespace terminal {
         void titleScreen() {
             terminal terminal;
             terminal.clear();
-            drawSprite("../sprites/title.ascii");
+            drawSprite("sprites/title.ascii");
 
-            std::cout << "\n\n\n" << "Bienvenue dans IUT Adventure! le jeux où tout est possible (enfin presque)" << std::endl;
+            std::cout << "\n\n\n" << "Bienvenue dans IUT Adventure! le jeu ou tout est possible (enfin presque)" << std::endl;
         }
 
         void titleSelectMenu(unsigned int& choice) {
