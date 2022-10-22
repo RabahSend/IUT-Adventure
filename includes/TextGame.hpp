@@ -6,6 +6,11 @@
 #include <fstream>
 #include "../Mobs_and_Persos/Entity.hpp"
 
+namespace Functionnality {
+	terminal::terminal term;
+	Checkpoints check;
+};
+
 void demarrage();
 
 void printASCII(std::string);

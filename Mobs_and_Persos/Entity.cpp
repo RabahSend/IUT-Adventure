@@ -43,7 +43,7 @@ Perso creerPersonnage() {
 			std::cin >> choixClasse;
 		}
 
-		
+	Perso_principal.getClasse(choixClasse);
 
 	return Perso_principal;
 };

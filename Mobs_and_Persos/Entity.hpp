@@ -8,8 +8,6 @@ struct stats {
 	double degats;
 	double defense;
 	double pointsDeVie;
-	int level;
-	int barre_xp;
 };
 
 class Perso {
@@ -17,25 +15,37 @@ class Perso {
 protected:
 
 	stats Stats;
+	int level;
+	int barre_xp;
 
 private:
 
 	bool vivant = true;
 	std::string Nom;
+	int choixClasse;
 
 public:
 
 	std::string getName(std::string nom) { return nom; }
-	std::string afficherNom() {return Nom;}
+	int getClasse(int classe) { return classe; }
+	int getLevel(int level) { return level; }
+
+	std::string afficherNom() { return Nom; }
+	int displayLevel() { return level; }
+	double displayPDV() { return Stats.pointsDeVie; }
+	int displayXP() { return barre_xp; }
+	double displayDefense() { return Stats.defense; }
+	double displayDegats() { return Stats.degats; }
+	int displayClasse() { return choixClasse; }
 
 	void getStats() {
 		std::cout << terminal::mid << Nom << std::endl;
 
-		std::cout << "Defense : " << Stats.defense << std::endl;
-		std::cout << "Degats : " << Stats.degats << std::endl;
-		std::cout << "PV : " << Stats.pointsDeVie << std::endl;
-		std::cout << "level : " << Stats.level << std::endl;
-		std::cout << "barre d'xp : " << Stats.barre_xp << std::endl;
+		std::cout << "Defense : " << displayDefense() << std::endl;
+		std::cout << "Degats : " <<	displayDegats() << std::endl;
+		std::cout << "PV : " << displayPDV() << std::endl;
+		std::cout << "level : " << displayLevel() << std::endl;
+		std::cout << "barre d'xp : " << displayXP() << std::endl;
 	}
 
 	Perso(std::string nom) {
@@ -44,31 +54,28 @@ public:
 		Stats.pointsDeVie = 10.0;
 		Stats.degats = 10.0;
 		Stats.defense = 10.0;
-		Stats.level = 1;
-		Stats.barre_xp = 0.0;
+		level = 1;
+		barre_xp = 0.0;
 	}
 
-	void augmenterLevel() { Stats.level++; }
+	void augmenterLevel() { level++; }
 
 	void augmenterBarreXP(double nb) {
-	Stats.barre_xp += nb;
-	if (Stats.barre_xp > 10) {
-		Stats.barre_xp = 0;
+	barre_xp += nb;
+	if (barre_xp > 10) {
+		barre_xp = 0;
 		nb = 10 - nb;
-		Stats.barre_xp = nb;
+		barre_xp = nb;
 		augmenterLevel();
 	}
-	else if (Stats.barre_xp == 10) {
-		Stats.barre_xp = 0;
+	else if (barre_xp == 10) {
+		barre_xp = 0;
 		augmenterLevel();
 	}
 }
 
 	void dropInfos();
-
-	void addInventaire(std::string);
-
-	void deleteInventaire(std::string);
+	
 };
 
 class Guerrier:public Perso {
@@ -85,7 +92,7 @@ class Guerrier:public Perso {
 		}
 
 		void donnerCompetence() {
-			if (Stats.level == 5)
+			if (level == 5)
 				FeuTenebreux = true;
 		}
 };
@@ -103,7 +110,7 @@ class Mage:public Perso {
 		}
 
 		void donnerCompetence() {
-			if (Stats.level == 5)
+			if (level == 5)
 				bouleDeFeu = true;
 		}
 };
@@ -121,7 +128,7 @@ class Voleur:public Perso {
 		}
 
 		void donnerCompetence() {
-			if (Stats.level == 5)
+			if (level == 5)
 				lacosteTN = true;
 		}
 };
@@ -139,27 +146,25 @@ class Archer:public Perso {
 		}
 
 		void donnerCompetence() {
-			if (Stats.level == 5)
+			if (level == 5)
 				flecheBrulante = true;
 		}
 };
 
 class Monster {
 private:
-	bool vivant;
-	double degats;
-	double defense;
-	int pointsDeVie;
+	stats Stats;
 	int level;
-
+	int barre_xp;
+	bool vivant = true;
+	
 public:
-
 	Monster(double degs, double def, int pv, int lvl) {
-	vivant = true;
-	degats = degs;
-	defense = def;
-	pointsDeVie = pv;
+	Stats.degats = degs;
+	Stats.defense = def;
+	Stats.pointsDeVie = pv;
 	level = lvl;
+	barre_xp = 0;
 	}
 };
 

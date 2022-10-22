@@ -1,6 +1,7 @@
 #include "TextGame.hpp"
 #include "dialogues.hpp"
 #include "../Mobs_and_Persos/Entity.hpp"
+#include "../saves/checkpoint.hpp"
 
 int menu() {
 
@@ -27,14 +28,12 @@ int menu() {
 				break;
         
             default:
+				terminal::draw::error("Choisissez un bon chiffre");
                 break;
         }
     } while (!valid);
     
-
-
-    terminal::terminal term;
-    term.clear();
+    Functionnality::term.clear();
     
     return 0;
 }
@@ -76,8 +75,7 @@ void faireChoix(Perso personnage_principal) {
 
 void game() {
 
-	terminal::terminal term;
-	term.clear();
+    Functionnality::term.clear();
 	std::cout << std::endl;
 	bool booleen = true;
 
@@ -95,6 +93,8 @@ void game() {
 		Dialogues::Chikha(perso_principal, 0, 0);
 
 		terminal::draw::mobApparition("cat");
+
+		std::cout << std::endl;
 
 		faireChoix(perso_principal);
 	}

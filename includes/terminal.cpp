@@ -19,9 +19,6 @@ namespace terminal {
         #elif __linux__
         osName = "linux";
 
-        #elif __FreeBSD__
-        osName = "freebsd";
-
         #elif __unix || __unix__
         osName = "unix";
 
@@ -32,7 +29,7 @@ namespace terminal {
     }
 
     void terminal::clear() {
-        if ((osName == "linux") || (osName == "macos") || (osName == "freebsd") || (osName == "other")) //Unix based systems
+        if ((osName == "linux") || (osName == "macos") || (osName == "other")) //Unix based systems
             system("clear");
         else if ((osName == "windows32") || (osName == "winsows64")) //Windows based systems
             system("cls");
@@ -82,8 +79,8 @@ namespace terminal {
             do {
                 terminal term;
                 term.clear();
-                std::cout << error << std::endl;
-                std::cout << "Continuer [O/n] ";
+                std::cout << error << std::endl
+                          << "Continuer [O/n] ";
                 std::cin >> c;
                 if (c == 'n' || c == 'N')
                     exit(0);
@@ -100,9 +97,9 @@ namespace terminal {
         }
 
         void titleSelectMenu(unsigned int& choice) {
-            std::cout << "Choisissez votre aventure :" << std::endl;
-            std::cout << "0. Demarrer une nouvelle partie\n" 
-                      << "1. Charger une sauvegarde\n"
+            std::cout << "Choisissez votre aventure :" << std::endl
+                      << "0. Demarrer une nouvelle partie" << std::endl 
+                      << "1. Charger une sauvegarde" << std::endl
                       << "2. Quitter" << std::endl;
 
             std::cin >> choice;
