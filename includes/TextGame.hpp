@@ -19,6 +19,6 @@ int menu();
 
 void choisirMenu(int, bool&);
 
-void faireChoix(Perso);
+void faireChoix(Perso, int, int);
 
 void game();

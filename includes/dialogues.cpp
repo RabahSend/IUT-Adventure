@@ -2,11 +2,11 @@
 #include "dialogues.hpp"
 #include "../Mobs_and_Persos/Entity.hpp"
 
-void Dialogues::passerDialogue() {
-	char space;
-	std::cout << "Pressez un charactere puis sur entrer pour continuer..." << std::endl;
-	std::cin >> space;
 
+void Dialogues::passerDialogue() {
+	std::string space;
+	std::cout << "Pressez entrer pour continuer..." << std::endl;
+	std::getline(std::cin, space);
 }
 
 void Dialogues::Narration(Perso perso_principal, int indexDebut, int indexFin) {
@@ -21,10 +21,11 @@ void Dialogues::Narration(Perso perso_principal, int indexDebut, int indexFin) {
 
 	if (indexFin < indexDebut)
 		std::cout << narrateur[indexDebut] << std::endl;
-
-	for (int i = indexDebut; i <= indexFin; ++i){
-		std::cout << narrateur[i] << std::endl; 
-		std::cout << std::endl;
+	else {
+		for (int i = indexDebut; i <= indexFin; ++i){
+			std::cout << narrateur[i] << std::endl; 
+			std::cout << std::endl;
+		}
 	}
 
 	passerDialogue();

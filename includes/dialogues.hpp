@@ -5,7 +5,7 @@ namespace Dialogues {
     
     void passerDialogue();
 
-	void Narration(Perso, int, int);
+	void Narration(Perso, int, int=0);
 
 	void Chikha(Perso, int, int);
 

@@ -5,6 +5,8 @@
 
 int menu() {
 
+	Perso perso_principal = {0};
+
 	void game();
     
     unsigned int choice;
@@ -20,7 +22,7 @@ int menu() {
 				break;
 
             case 1:
-				//tqt
+				loadSave(perso_principal, Functionnality::check);
                 break;
 
 			case 2:
@@ -38,7 +40,7 @@ int menu() {
     return 0;
 }
 
-void faireChoix(Perso personnage_principal) {
+void faireChoix(Perso personnage_principal, int indexDebut, int indexFin) {
 	std::vector<std::string> lesChoix = {"1. Avancer", "2. Details du personnage", "3. Sauvegarder",
 	 "4. Quitter"};
 
@@ -56,13 +58,14 @@ void faireChoix(Perso personnage_principal) {
 
 	switch(choixUtilisateur){
 		case 1:
-			Dialogues::Narration(personnage_principal, 2, 3);
+			Dialogues::Narration(personnage_principal, indexDebut, indexFin);
 			break;
 		case 2:
 			personnage_principal.getStats();
 			break;
 		case 3:
-			return;
+			save(personnage_principal);
+			break;
 		case 4:
 			menu();
 			break;
@@ -96,7 +99,11 @@ void game() {
 
 		std::cout << std::endl;
 
-		faireChoix(perso_principal);
+		faireChoix(perso_principal, 2, 3);
+
+		Functionnality::check = check1;
+
+		
 	}
 
 }
